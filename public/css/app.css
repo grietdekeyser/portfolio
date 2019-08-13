@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Blinker:300&display=swap);html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 595px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  font-family: "Blinker", sans-serif;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: rgba(223, 220, 227, 0.33);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+header {
+  background-color: white;
+}
+
+nav,
+footer {
+  background-color: #4ABDAC;
+}
+
+main {
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+
+section {
+  margin: 2rem auto;
+}
+
+section h1,
+section h2,
+section h3 {
+  color: #FC4A1A;
+}
+
+section.text {
+  max-width: 45rem;
+}
+
+section.text em {
+  font-style: italic;
+}
+
+section.text a:hover {
+  color: #4ABDAC;
+}
+
+section.text h1,
+section.text h2,
+section.text h3 {
+  margin: 1rem 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 1rem 0;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+footer p {
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover,
+footer a:active {
+  opacity: 0.7;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hide {
+  display: none;
+}
+

@@ -1,0 +1,361 @@
+@import url(https://fonts.googleapis.com/css?family=Blinker:300&display=swap);nav.menu {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+          flex-direction: row-reverse;
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu {
+    padding: 0 1rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+  }
+}
+
+nav.menu p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: initial;
+  margin: 1rem;
+}
+
+nav.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav.menu ul:not(.submenu) {
+  margin: 1rem;
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu ul:not(.submenu) {
+    margin: 1rem 0;
+    display: -webkit-box;
+    display: flex;
+    position: static;
+  }
+
+  nav.menu ul:not(.submenu) > li {
+    margin: 0 0.1rem;
+  }
+}
+
+@media screen and (min-width: 595px) and (min-width: 768px) {
+  nav.menu ul:not(.submenu) > li {
+    margin: 0 0.2rem;
+  }
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu ul:not(.submenu) > li > a {
+    border-bottom: 2px solid transparent;
+  }
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu ul:not(.submenu) > li > a:hover,
+  nav.menu ul:not(.submenu) > li > a:active,
+  nav.menu ul:not(.submenu) > li.active > a {
+    border-bottom: 2px solid white;
+  }
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu ul:not(.submenu) > li > a:hover {
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu ul:not(.submenu) > li:hover > a {
+    border-bottom: 2px solid white;
+    color: white;
+  }
+}
+
+nav.menu ul.submenu {
+  padding-left: 1rem;
+  display: none;
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu ul.submenu {
+    padding: 0.25rem 0 0 0;
+    position: absolute;
+    left: auto;
+    top: auto;
+    z-index: 5;
+  }
+}
+
+nav.menu ul.submenu li {
+  display: block;
+  background-color: #4ABDAC;
+}
+
+nav.menu ul.submenu a {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+nav.menu input#menu,
+nav.menu input#submenu {
+  display: none;
+}
+
+nav.menu input#menu:checked + label,
+nav.menu input#submenu:checked + label {
+  color: white;
+}
+
+nav.menu input#menu:checked + label .fa-angle-down,
+nav.menu input#menu:checked + label .fa-bars,
+nav.menu input#submenu:checked + label .fa-angle-down,
+nav.menu input#submenu:checked + label .fa-bars {
+  display: none;
+}
+
+nav.menu input#menu:checked + label .fa-angle-up,
+nav.menu input#menu:checked + label .fa-times,
+nav.menu input#submenu:checked + label .fa-angle-up,
+nav.menu input#submenu:checked + label .fa-times {
+  display: inline;
+}
+
+nav.menu input#menu:checked ~ li,
+nav.menu input#submenu:checked ~ li {
+  display: block;
+  background-color: #4ABDAC;
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu input#menu:checked ~ li,
+  nav.menu input#submenu:checked ~ li {
+    background-color: initial;
+  }
+}
+
+nav.menu input#menu:checked ~ ul.submenu,
+nav.menu input#submenu:checked ~ ul.submenu {
+  display: block;
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu input#menu:checked + label .fa-angle-down,
+  nav.menu input#submenu:checked + label .fa-angle-down {
+    display: inline;
+  }
+
+  nav.menu input#menu:checked + label .fa-angle-up,
+  nav.menu input#menu:checked + label .fa-times,
+  nav.menu input#submenu:checked + label .fa-angle-up,
+  nav.menu input#submenu:checked + label .fa-times {
+    display: none;
+  }
+}
+
+nav.menu label {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu label[for=menu] {
+    display: none;
+  }
+}
+
+nav.menu label[for=submenu] {
+  padding-right: 0.5rem;
+  position: absolute;
+  top: 0;
+  right: -0.4rem;
+}
+
+nav.menu label .fa-angle-up,
+nav.menu label .fa-times {
+  display: none;
+}
+
+@media screen and (hover: hover) and (min-width: 595px) {
+  nav.menu label {
+    display: none;
+    cursor: default;
+  }
+
+  nav.menu label[for=submenu] {
+    display: inline;
+  }
+}
+
+nav.menu li {
+  display: none;
+  width: 6rem;
+}
+
+@media screen and (min-width: 595px) {
+  nav.menu li {
+    display: inline-block;
+    width: initial;
+  }
+}
+
+nav.menu li.active > a,
+nav.menu li.active label {
+  color: white;
+}
+
+nav.menu li.submenu {
+  position: relative;
+}
+
+nav.menu li a {
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+@media screen and (hover: hover) and (min-width: 595px) {
+  nav.menu li.submenu:hover ul.submenu {
+    display: block;
+  }
+}
+
+nav.menu li .fas {
+  font-size: 1rem;
+}
+
+nav.menu li:hover label {
+  color: white;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+}
+
+nav.menu a {
+  text-decoration: none;
+}
+
+nav.menu a:hover {
+  color: white;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+}
+
+@media screen and (min-width: 595px) and (hover: hover) {
+  nav.menu:hover li {
+    display: block;
+    background-color: #4ABDAC;
+    background-color: initial;
+  }
+}
+
+.hero {
+  height: 10rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+@media screen and (min-width: 595px) {
+  .hero {
+    height: 15rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 20rem;
+  }
+}
+
+.hero.education {
+  background-image: url("/img/jesus-kiteque-wn-KYaHwcis-unsplash.jpg");
+  background-position: 50% 85%;
+  background-size: cover;
+}
+
+.hero.contact {
+  background-image: url("/img/mathyas-kurmann-fb7yNPbT0l8-unsplash.jpg");
+  background-position: 50% 52%;
+  background-size: cover;
+}
+
+.cards {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.card {
+  background-color: white;
+  width: 18rem;
+  max-width: 30rem;
+  padding: 1rem;
+  margin: 0.75rem;
+  border-top: 0.16rem solid #FC4A1A;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.card .icon {
+  color: #FC4A1A;
+  font-size: 1.5rem;
+}
+
+.card h2 {
+  font-size: 2rem;
+  margin: 1.25rem 0;
+}
+
+.card h2,
+.card p {
+  text-align: center;
+}
+
+.card strong {
+  font-weight: bold;
+}
+
+.card.contact a:hover {
+  color: #4ABDAC;
+}
+
+.card.contact i:not(.far) {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.card:hover .read-more {
+  color: #4ABDAC;
+}
+
+.card .read-more {
+  text-decoration: underline;
+}
+
+a.card {
+  text-decoration: none;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+  position: relative;
+  top: 0;
+}
+
+a.card:hover,
+a.card:active,
+a.card:focus {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  top: 2px;
+}
+

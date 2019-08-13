@@ -1,0 +1,23 @@
+.hero {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include sm {
+        height: 15rem;
+    }
+    @include md {
+        height: 20rem;
+    }
+    &.education {
+        background-image: url('/img/jesus-kiteque-wn-KYaHwcis-unsplash.jpg');
+        background-position: 50% 85%;
+        background-size: cover;
+    }
+    &.contact {
+        background-image: url('/img/mathyas-kurmann-fb7yNPbT0l8-unsplash.jpg');
+        background-position: 50% 52%;
+        background-size: cover;
+    }
+}

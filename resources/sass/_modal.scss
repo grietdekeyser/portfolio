@@ -1,0 +1,100 @@
+body.modal-shown {
+    overflow: hidden;
+    position: absolute;
+}
+
+.img-modal {
+    width: 15rem;
+    max-height: 15rem;
+    margin: 0 auto;
+    flex-shrink: 0;
+    img {
+        max-width: 15rem;
+        max-height: 15rem;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            @include opacity;
+        }
+        &.fix {
+            height: initial;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    @include md {
+        flex-wrap: nowrap;
+        &.right {
+            flex-direction: row;
+            .img-modal {
+                margin: 1rem 0 1rem 2rem;
+            }
+        }
+        &.left {
+            flex-direction: row-reverse;
+            .img-modal {
+                margin: 1rem 2rem 1rem 0;
+            }
+        } 
+    }
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    padding-top: 6.25rem;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-color: rgba(0,0,0,0.9);
+    &.closed {
+        display: none;
+    }
+    img.modal-content, #caption { 
+        margin: auto;
+        display: block;
+        max-width: 100%;
+        max-height: calc(100vh - 11.25rem);
+        @include md {
+            max-width: 80%;
+        }
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+    img.modal-content {
+
+    }
+    .caption {
+        text-align: center;
+        color: #ccc;
+        padding: 0.625rem 0;
+        height: 5rem;
+        overflow: auto;
+    }
+    .close {
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        color: #f1f1f1;
+        font-size: 2.5rem;
+        font-weight: bold;
+        transition: 0.3s;
+        &:hover, &:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}

@@ -1,0 +1,54 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    @include background-contrast;
+    width: 18rem;
+    max-width: 30rem;
+    padding: 1rem;
+    margin: 0.75rem;
+    border-top: $border-pr-hl;
+    flex-grow: 1;
+    .icon {
+        color: $primary-hl;
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+        margin: 1.25rem 0;
+    }
+    h2, p {
+        text-align: center;
+    }
+    strong {
+        font-weight: bold;
+    }
+    &.contact {
+        a {
+            @include hover-color;
+            //font-weight: bold;
+        }
+        i:not(.far) {
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+    }
+    &:hover .read-more {
+        @include active-color;
+    }
+    .read-more {
+        text-decoration: underline;
+    }
+}
+a.card {
+    @include neutral-link;
+    transition: .3s all ease-in-out;
+    position: relative;
+    top: 0;
+    &:hover, &:active, &:focus {
+        box-shadow: 0 10px 30px -10px rgba(0,0,0,.4);
+        top: 2px;
+    }
+}

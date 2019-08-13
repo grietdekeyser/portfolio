@@ -1,0 +1,177 @@
+nav.menu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    @include sm {
+        padding: 0 1rem;
+        flex-direction: row;
+    }
+    p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: initial; 
+        margin: 1rem;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        &:not(.submenu) {
+            margin: 1rem;
+            @include sm {
+                margin: 1rem 0;
+                display: flex;
+                position: static;
+                > li {
+                    margin: 0 0.1rem;
+                    @include md {
+                        margin: 0 0.2rem;
+                    }
+                    > a {
+                        border-bottom: 2px solid transparent;
+                    }
+                    > a:hover, > a:active, &.active > a {
+                        border-bottom: $border-sec-hl-opac;
+                    }
+                    > a:hover {
+                        transition: 1s;
+                    }
+                    &:hover > a {
+                        border-bottom: $border-sec-hl-opac;
+                        @include active-contrast;
+                    }
+                }
+            }
+        }  
+        &.submenu {
+            padding-left: 1rem;
+            display: none;
+            @include sm {
+                padding: 0.25rem 0 0 0;
+                position: absolute;
+                left: auto;
+                top: auto;
+                z-index: 5;
+            }
+            li {
+                @include menu-vertical;
+            }
+            a {
+                display: block;
+                padding: 0.5rem 1rem; 
+            }
+        }
+    }
+    input {
+        &#menu, &#submenu {
+            display: none;
+            &:checked {
+                + label {
+                    @include active-contrast;
+                }
+                + label .fa-angle-down, + label .fa-bars {
+                    display: none;
+                }
+                + label .fa-angle-up, + label .fa-times {
+                    display: inline;
+                }
+                ~ li {
+                    @include menu-vertical;
+                    @include sm {
+                        background-color: initial;
+                    } 
+                }
+                ~ ul.submenu {
+                    display: block;
+                }
+                @include sm {
+                    + label .fa-angle-down {
+                        display: inline;
+                    }
+                    + label .fa-angle-up, + label .fa-times {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    label {
+        font-size: 1.5rem;
+        cursor: pointer;
+        &[for="menu"] {
+            @include sm {
+                display: none;
+            }
+        }
+        &[for="submenu"] {
+            padding-right: 0.5rem;
+            position: absolute;
+            top: 0;
+            right: -0.4rem;
+        }
+        .fa-angle-up, .fa-times {
+            display: none;
+        }
+        @include hover-ok {
+            @include sm {
+                display: none;
+                cursor: default; 
+                &[for="submenu"] {
+                    display: inline;
+                }
+            }
+        }
+    }
+    li {
+        display: none;
+        width: 6rem;
+        @include sm {
+            display: inline-block;
+            width: initial;
+        }
+        &.active {
+            > a, label {
+                @include active-contrast;
+            }
+        }
+        &.submenu {
+            position: relative;
+        }
+        a {
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+        @include hover-ok {
+            @include sm {
+                &.submenu:hover {
+                    ul.submenu {
+                        display: block;
+                    }
+                }
+            } 
+        }
+        .fas {
+            font-size: 1rem;
+        }
+        &:hover {
+            label {
+                @include active-contrast;
+                transition: color 1s;
+            }
+        }
+    } 
+    a {
+        @include neutral-link;
+        &:hover {
+            @include active-contrast;
+            transition: color 1s;
+        }
+    }
+    @include sm {
+        @include hover-ok {
+            &:hover li {
+                @include menu-vertical;
+                background-color: initial;
+            }
+        }  
+    }   
+}

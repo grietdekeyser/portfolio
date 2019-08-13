@@ -1,0 +1,121 @@
+// Typography
+$font-family-sans-serif: 'Blinker', sans-serif;
+$font-family-monospace: Courier, monospace;
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+// Colors
+$grey: #ddd;
+$darkred: #9a0404;
+$darkgreen: #2e7e6d;
+$darkgreen-opac: rgba(46, 126, 109, 0.28);
+
+$freshgreen: #4ABDAC;
+$vermillion: #FC4A1A;
+$cleangrey: rgba(223, 220, 227, 0.33);
+// rgba(238, 238, 238, 0.2)
+
+
+$primary: $cleangrey;
+$secondary: $freshgreen;
+$primary-hl: $vermillion; 
+$contrast: white;
+
+// Borders
+$rounded-border: 1rem;
+$border-sec: 0.08rem solid $secondary;
+$border-pr-hl: 0.16rem solid $primary-hl;
+$border-sec-hl-opac: 2px solid $contrast;
+
+// Media queries
+$break-sm: 595px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
+// Mixins (media queries)
+@mixin sm {
+  @media screen and (min-width: #{$break-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{$break-md}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{$break-lg}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$break-xl}) {
+    @content;
+  }
+}
+
+@mixin hover-ok {
+  @media (hover: hover) {
+     @content;
+  }
+}
+
+// Mixins
+@mixin neutral-link {
+  text-decoration: none;
+}
+
+@mixin active-color {
+  color: $secondary;
+}
+
+@mixin hover-color {
+  &:hover {
+    @include active-color;
+  }
+}
+
+@mixin active-contrast {
+  color: $contrast;
+}
+
+@mixin hover-contrast {
+    &:hover {
+    @include active-contrast;
+  }
+}
+
+@mixin background-pr {
+  background-color: $primary;
+}
+
+@mixin background-sec {
+  background-color: $secondary;
+}
+
+@mixin background-contrast {
+  background-color: $contrast;
+}
+
+@mixin filter-sec-hl {
+  filter: invert(64%) sepia(55%) saturate(375%) hue-rotate(122deg) brightness(91%) contrast(95%);
+}
+
+@mixin opacity {
+  opacity: 0.7;
+}
+@mixin menu-vertical {
+  display: block;
+  background-color: $secondary;
+  // TO DO transition: display 2s;
+}
+
+@mixin eyecatcher-text {
+  color: white;
+  background-color: hsla(0, 0, 0, 0.52);
+  text-align: center;
+}
